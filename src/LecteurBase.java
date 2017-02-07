@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -27,25 +27,13 @@ public class LecteurBase {
 			for(String strMot:strMots){
 				if(strMot!=""&&strMot!=null){
 					MotJaponais mj=new MotJaponais(strMot);
-			    	System.out.println(mj);
+			    	//System.out.println(mj);
 			    	listeMots.add(mj);
 				}
 			}
-			/*BufferedReader br = new BufferedReader(new FileReader("listeMots.txt"));
-			String ligne, strMot="";
-		    while ((ligne = br.readLine()) != null) {
-		        //System.out.println(ligne);
-		    	if(strMot.indexOf('}')==-1){
-		    		strMot+=ligne;
-		    	}
-		    	else{
-			    	MotJaponais mj=new MotJaponais(strMot);
-			    	//System.out.println(mj);
-			    	listeMots.add(mj);
-			    	strMot="";
-		    	}
-		    }
-		    System.out.println(strMot);*/
+			Collections.sort(listeMots);
+			for(MotJaponais mot:listeMots)
+				System.out.println(mot);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
