@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paquet>
+<carte>
+	<numero>0</numero>
+	<question>の</question>
+	<reponse>
+		<signification>indique possession</signification>
+		<exemple>私「わたし」の意見「いけん」
+			 mon opinion
+		</exemple>
+	</reponse>
+</carte>
+<carte>
+	<numero>1</numero>
+	<question>に</question>
+	<reponse>
+		<signification>particle for indirect objects; to</signification>
+		<exemple>俺「おれ」に返せ「かえせ」
+			 give it back to me
+		</exemple>
+	</reponse>
+	<reponse>
+		<signification>particule de lieu/direction/temps; à</signification>
+		<exemple>学校「がっこう」にいる
+			 je suis à l’école
+		</exemple>
+		<exemple>７時「しちじ」にね
+			 c’est à sept heures
+		</exemple>
+	</reponse>
+	<reponse>
+		<signification>particule d’agent passif; par</signification>
+		<exemple>蚊「か」にさされた
+			 j’ai été piqué par un moustique
+		</exemple>
+	</reponse>
+	<reponse>
+		<signification>particle indicating purpose/intent; for; to</signification>
+		<exemple>映画「えいが」を見「み」に行け「いく」
+			 I'm going to see a movie>
+		</exemple>
+	</reponse>
+</carte>
+<carte>
+	<numero>2</numero>
+	<question>する</question>
+	<reponse>
+		<signification>faire</signification>
+		<exemple>何「なに」を  して  いますか
+			 que fais-tu?
+		</exemple>
+	</reponse>
+</carte>
+</paquet>
+

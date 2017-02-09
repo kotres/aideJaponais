@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -10,16 +11,19 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.swing.AbstractButton;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
 
 
-public class FenetreApplication extends JFrame implements ActionListener{
+/*public class FenetreApplication extends JFrame implements ActionListener{
 	CardLayout layoutCartes;
 	private JPanel cartes;
 	
@@ -36,6 +40,12 @@ public class FenetreApplication extends JFrame implements ActionListener{
 	private JMenuItem menuItemQuestion;
 	private JMenuItem menuItemReponse;
 	
+	private JPanel panelOption;
+	private JLabel labelNumMin;
+	private JSpinner SpinNumMin;
+	private JLabel labelNumMax;
+	private JSpinner SpinNumMax;
+	
 	private Map<AbstractButton, Integer> mapSourceAction;
 	
 	private List<MotJaponais> listeMots;
@@ -43,13 +53,19 @@ public class FenetreApplication extends JFrame implements ActionListener{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	/*private static final long serialVersionUID = 1L;
 	
 	private void loadNextQuestion(){
 		int randomNum = ThreadLocalRandom.current().nextInt(numMotMin, numMotMax);
-		labelQuestion.setText(listeMots.get(randomNum).motOriginal);
+		MotJaponais prochainMot=listeMots.get(randomNum);
+		labelQuestion.setText(prochainMot.motOriginal);
 		layoutCartes.show(cartes, "question");
-		labelReponse.setText(listeMots.get(randomNum).toString());
+		String texteReponse="<html>";
+		texteReponse+=prochainMot.signification+"<br><br>";
+		texteReponse+=prochainMot.exemple+"<br><br>";
+		texteReponse+=prochainMot.exempleTraduit+"<br><br>";
+		texteReponse+="</html>";
+		labelReponse.setText(texteReponse);
 	}
 	
 	private void initGUI(){
@@ -57,7 +73,21 @@ public class FenetreApplication extends JFrame implements ActionListener{
 		this.setSize(600, 480);
 		layoutCartes=new CardLayout();
 		cartes=new JPanel(layoutCartes);
+		initCarteQuestion();
 		
+		initCarteReponse();
+		
+		initMenuBar();
+		
+		initCarteOption();
+		
+		this.add(cartes);
+		layoutCartes.show(cartes, "question");
+		this.setVisible(true);
+		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	}
+	
+	private void initCarteQuestion(){
 		panelQuestion= new JPanel();
 		panelQuestion.setLayout(new BorderLayout());
 		labelQuestion= new JLabel("日本語");
@@ -68,17 +98,37 @@ public class FenetreApplication extends JFrame implements ActionListener{
 		boutonAfficherReponse.addActionListener(this);
 		panelQuestion.add(boutonAfficherReponse,BorderLayout.SOUTH);
 		cartes.add(panelQuestion,"question");
-		
+	}
+	
+	private void initCarteReponse(){
 		panelReponse=new JPanel();
 		panelReponse.setLayout(new BorderLayout());
 		labelReponse= new JLabel("Japonais");
 		labelReponse.setHorizontalAlignment(JLabel.CENTER);
+		labelReponse.setFont(new Font("Serif", Font.PLAIN, 24));
 		panelReponse.add(labelReponse,BorderLayout.CENTER);
 		boutonProchaineQuestion=new JButton("prochaine question");
 		boutonProchaineQuestion.addActionListener(this);
 		panelReponse.add(boutonProchaineQuestion,BorderLayout.SOUTH);
 		cartes.add(panelReponse,"réponse");
-		
+	}
+	
+	private void initCarteOption(){
+		panelOption=panelReponse=new JPanel();
+		panelOption.setLayout(new BoxLayout(panelOption, BoxLayout.Y_AXIS));
+		panelOption.setBorder(new EmptyBorder(new Insets(150, 200, 150, 200)));
+		labelNumMin=new JLabel("rang occurence minimale");
+		panelOption.add(labelNumMin);
+		SpinNumMin=new JSpinner();
+		panelOption.add(SpinNumMin);
+		labelNumMax=new JLabel("rang occurence maximale");
+		panelOption.add(labelNumMax);
+		SpinNumMax=new JSpinner();
+		panelOption.add(SpinNumMax);
+		cartes.add(panelOption,"option");
+	}
+	
+	private void initMenuBar(){
 		menuBar=new JMenuBar();
 		menuItemOptions=new JMenuItem("options");
 		menuItemOptions.addActionListener(this);
@@ -89,12 +139,7 @@ public class FenetreApplication extends JFrame implements ActionListener{
 		menuItemReponse=new JMenuItem("réponse");
 		menuItemReponse.addActionListener(this);
 		menuBar.add(menuItemReponse);
-		
 		this.setJMenuBar(menuBar);
-		this.add(cartes);
-		layoutCartes.show(cartes, "question");
-		this.setVisible(true);
-		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	
 	private void initMap(){
@@ -105,6 +150,7 @@ public class FenetreApplication extends JFrame implements ActionListener{
 		mapSourceAction.put(menuItemQuestion, 3);
 		mapSourceAction.put(menuItemReponse, 4);
 	}
+	
 	
 	public FenetreApplication() throws IOException{
 		listeMots=new LecteurBase().getListeMots();
@@ -130,6 +176,9 @@ public class FenetreApplication extends JFrame implements ActionListener{
 			case 1:
 				loadNextQuestion();
 			break;
+			case 2:
+				layoutCartes.show(cartes, "option");
+			break;
 			case 3:
 				layoutCartes.show(cartes, "question");
 			break;
@@ -143,6 +192,6 @@ public class FenetreApplication extends JFrame implements ActionListener{
 		else{
 			if(arg0.getSource() ==boutonProchaineQuestion)
 				loadNextQuestion();
-		}*/
+		}
 	}
-}
+}*/
