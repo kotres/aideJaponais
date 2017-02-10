@@ -1,7 +1,0 @@
-{<n=0> <m=の> <s=aze> <e=tyo> <et=nvea>}
-{<n=1> <m=に> <s=VZCKJ> <e=bnjq> <et=ùbglkj>}
-{<n=2> <m=する> <s=gONVBE> <e=biqrb> <et=oebivj>}
-{<n=3> <m=は> <s=nmro> <e=pethj> <et=oghi>}
-{<n=4> <m=を> <s=iuthbn> <e=itgbn> <et=qoqthijbn>}
-{<n=5> <m=が> <s=thnib> <e=oihtj> <et=tohin>}
-

@@ -23,9 +23,9 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 
-/*public class FenetreApplication extends JFrame implements ActionListener{
+public class FenetreApplication extends JFrame implements ActionListener{
 	CardLayout layoutCartes;
-	private JPanel cartes;
+	private JPanel cartesPanel;
 	
 	private JPanel panelQuestion;
 	private JLabel labelQuestion;
@@ -48,31 +48,27 @@ import javax.swing.border.EmptyBorder;
 	
 	private Map<AbstractButton, Integer> mapSourceAction;
 	
-	private List<MotJaponais> listeMots;
+	private Paquet paquet;
+	private Carte carte;
 	private int numMotMin,numMotMax;
 	/**
 	 * 
 	 */
-	/*private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	private void loadNextQuestion(){
 		int randomNum = ThreadLocalRandom.current().nextInt(numMotMin, numMotMax);
-		MotJaponais prochainMot=listeMots.get(randomNum);
-		labelQuestion.setText(prochainMot.motOriginal);
-		layoutCartes.show(cartes, "question");
-		String texteReponse="<html>";
-		texteReponse+=prochainMot.signification+"<br><br>";
-		texteReponse+=prochainMot.exemple+"<br><br>";
-		texteReponse+=prochainMot.exempleTraduit+"<br><br>";
-		texteReponse+="</html>";
-		labelReponse.setText(texteReponse);
+		carte=paquet.getCarte(randomNum);
+		labelQuestion.setText(carte.getQuestion());
+		layoutCartes.show(cartesPanel, "question");
+		labelReponse.setText(carte.getReponse());
 	}
 	
 	private void initGUI(){
 		this.setTitle("aide Japonais");
 		this.setSize(600, 480);
 		layoutCartes=new CardLayout();
-		cartes=new JPanel(layoutCartes);
+		cartesPanel=new JPanel(layoutCartes);
 		initCarteQuestion();
 		
 		initCarteReponse();
@@ -81,8 +77,8 @@ import javax.swing.border.EmptyBorder;
 		
 		initCarteOption();
 		
-		this.add(cartes);
-		layoutCartes.show(cartes, "question");
+		this.add(cartesPanel);
+		layoutCartes.show(cartesPanel, "question");
 		this.setVisible(true);
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
@@ -97,7 +93,7 @@ import javax.swing.border.EmptyBorder;
 		boutonAfficherReponse= new JButton("réponse");
 		boutonAfficherReponse.addActionListener(this);
 		panelQuestion.add(boutonAfficherReponse,BorderLayout.SOUTH);
-		cartes.add(panelQuestion,"question");
+		cartesPanel.add(panelQuestion,"question");
 	}
 	
 	private void initCarteReponse(){
@@ -110,7 +106,7 @@ import javax.swing.border.EmptyBorder;
 		boutonProchaineQuestion=new JButton("prochaine question");
 		boutonProchaineQuestion.addActionListener(this);
 		panelReponse.add(boutonProchaineQuestion,BorderLayout.SOUTH);
-		cartes.add(panelReponse,"réponse");
+		cartesPanel.add(panelReponse,"réponse");
 	}
 	
 	private void initCarteOption(){
@@ -125,7 +121,7 @@ import javax.swing.border.EmptyBorder;
 		panelOption.add(labelNumMax);
 		SpinNumMax=new JSpinner();
 		panelOption.add(SpinNumMax);
-		cartes.add(panelOption,"option");
+		cartesPanel.add(panelOption,"option");
 	}
 	
 	private void initMenuBar(){
@@ -152,10 +148,10 @@ import javax.swing.border.EmptyBorder;
 	}
 	
 	
-	public FenetreApplication() throws IOException{
-		listeMots=new LecteurBase().getListeMots();
+	public FenetreApplication(){
+		paquet=new Paquet("listeMots.xml");
 		numMotMin=0;
-		numMotMax=listeMots.size();
+		numMotMax=paquet.taillePaquet();
 		initGUI();
 		initMap();
 		loadNextQuestion();
@@ -171,27 +167,27 @@ import javax.swing.border.EmptyBorder;
 		if(mapSourceAction.containsKey(arg0.getSource())){
 			switch(mapSourceAction.get(arg0.getSource())){
 			case 0:
-				layoutCartes.show(cartes, "réponse");
+				layoutCartes.show(cartesPanel, "réponse");
 			break;
 			case 1:
 				loadNextQuestion();
 			break;
 			case 2:
-				layoutCartes.show(cartes, "option");
+				layoutCartes.show(cartesPanel, "option");
 			break;
 			case 3:
-				layoutCartes.show(cartes, "question");
+				layoutCartes.show(cartesPanel, "question");
 			break;
 			case 4:
-				layoutCartes.show(cartes, "réponse");
+				layoutCartes.show(cartesPanel, "réponse");
 			break;
 			}
 		}
-		/*if(arg0.getSource() == boutonAfficherReponse)
-			layoutCartes.show(cartes, "réponse");
+		if(arg0.getSource() == boutonAfficherReponse)
+			layoutCartes.show(cartesPanel, "réponse");
 		else{
 			if(arg0.getSource() ==boutonProchaineQuestion)
 				loadNextQuestion();
 		}
 	}
-}*/
+}

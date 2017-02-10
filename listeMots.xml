@@ -5,8 +5,8 @@
 	<question>の</question>
 	<reponse>
 		<signification>indique possession</signification>
-		<exemple>私「わたし」の意見「いけん」
-			 mon opinion
+                <exemple><original>私「わたし」の意見「いけん」</original>
+                         <traduction>mon opinion</traduction>
 		</exemple>
 	</reponse>
 </carte>
@@ -15,29 +15,29 @@
 	<question>に</question>
 	<reponse>
 		<signification>particle for indirect objects; to</signification>
-		<exemple>俺「おれ」に返せ「かえせ」
-			 give it back to me
+                <exemple><original>俺「おれ」に返せ「かえせ」</original>
+                         <traduction>give it back to me</traduction>
 		</exemple>
 	</reponse>
 	<reponse>
 		<signification>particule de lieu/direction/temps; à</signification>
-		<exemple>学校「がっこう」にいる
-			 je suis à l’école
+                <exemple><original>学校「がっこう」にいる</original>
+                         <traduction>je suis à l’école</traduction>
 		</exemple>
-		<exemple>７時「しちじ」にね
-			 c’est à sept heures
+                <exemple><original>７時「しちじ」にね</original>
+                         <traduction>c’est à sept heures</traduction>
 		</exemple>
 	</reponse>
 	<reponse>
 		<signification>particule d’agent passif; par</signification>
-		<exemple>蚊「か」にさされた
-			 j’ai été piqué par un moustique
+                <exemple><original>蚊「か」にさされた</original>
+                         <traduction>j’ai été piqué par un moustique</traduction>
 		</exemple>
 	</reponse>
 	<reponse>
 		<signification>particle indicating purpose/intent; for; to</signification>
-		<exemple>映画「えいが」を見「み」に行け「いく」
-			 I'm going to see a movie>
+                <exemple><original>映画「えいが」を見「み」に行け「いく」</original>
+                         <traduction>I'm going to see a movie></traduction>
 		</exemple>
 	</reponse>
 </carte>
@@ -46,8 +46,8 @@
 	<question>する</question>
 	<reponse>
 		<signification>faire</signification>
-		<exemple>何「なに」を  して  いますか
-			 que fais-tu?
+                <exemple><original>何「なに」を  して  いますか</original>
+                         <traduction>que fais-tu?</traduction>
 		</exemple>
 	</reponse>
 </carte>
